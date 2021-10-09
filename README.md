@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+<!-- users テーブル -->
 
-* Ruby version
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
 
-* System dependencies
+- has_many :days
+- has_many :events
 
-* Configuration
+<!-- daysテーブル -->
 
-* Database creation
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| name   | string | null: false |
 
-* Database initialization
+- has_many :events
+- belongs_to :user
 
-* How to run the test suite
+<!-- eventsテーブル -->
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| content            | string | null: false |
+| room               | string | null: false |
 
-* Deployment instructions
-
-* ...
+- belongs_to :user
+- belongs_to :day
